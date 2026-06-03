@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lucas Almeida | Portfólio Profissional</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #90D5FF;
+            color: #1a1a2e;
+            line-height: 1.6;
+        }
+
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            padding: 1rem 2rem;
+        }
+
+        header ul {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            list-style: none;
+            flex-wrap: wrap;
+        }
+
+        header ul li a {
+            text-decoration: none;
+            color: #4a5568;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            font-size: 1.1rem;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        header ul li a:hover {
+            color: #90D5FF;
+            background: rgba(144, 213, 255, 0.1);
+            transform: translateY(-2px);
+        }
+
+        main {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .sobremim-link {
+            text-decoration: none;
+            display: block;
+            cursor: pointer;
+        }
+
+        #sobremim {
+            background: white;
+            border-radius: 20px;
+            padding: 3rem;
+            margin-bottom: 3rem;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .sobremim-link:hover #sobremim {
+            transform: translateY(-5px);
+            box-shadow: 0 25px 50px rgba(0,0,0,0.15);
+        }
+
+        .perfil-container {
+            display: flex;
+            align-items: center;
+            gap: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .perfil-container img {
+            width: 250px;
+            height: 250px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid #90D5FF;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+
+        .perfil-info h1 {
+            font-size: 2.8rem;
+            margin-bottom: 0.5rem;
+            color: #2d3748;
+        }
+
+        .perfil-info h2 {
+            font-size: 1.3rem;
+            color: #90D5FF;
+            margin-bottom: 1rem;
+            font-weight: 500;
+        }
+
+        /* AJUSTE VISUAL DA FRASE ABAIXO DO TÍTULO */
+        .perfil-info p {
+            font-size: 1.15rem;       /* ligeiramente maior */
+            color: #4a5568;
+            max-width: 600px;
+            line-height: 1.7;         /* mais espaçamento entre linhas */
+            font-weight: 400;         /* mantém peso normal */
+            letter-spacing: 0.2px;    /* leve abertura para clareza */
+        }
+
+        .curriculo-indicador {
+            margin-top: 1rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: #90D5FF;
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            color: white;
+            font-size: 0.85rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .sobremim-link:hover .curriculo-indicador {
+            transform: translateX(5px);
+            background: #90D5FF;
+        }
+
+        #projetos h3, #contato h3 {
+            font-size: 2rem;
+            text-align: center;
+            margin-bottom: 2rem;
+            color: white;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+
+        #cards {
+            display: flex;
+            gap: 2rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 3rem;
+        }
+
+        .card, a .card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            width: 320px;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+
+        .card-link {
+            text-decoration: none;
+            display: block;
+        }
+
+        .card-link .card {
+            cursor: pointer;
+        }
+
+        .card:hover, a .card:hover, .card-link:hover .card {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+        }
+
+        .card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .card h4 {
+            padding: 1rem 1rem 0.5rem;
+            font-size: 1.3rem;
+            color: #2d3748;
+        }
+
+        /* Cards com "FUTUROS PROJETOS" */
+        #ecommerceLink .card p,
+        #appMobileLink .card p {
+            padding: 0 1.5rem 1.2rem;
+            font-size: 1rem;
+            text-align: center;
+            color: #5a6c7d;
+            font-weight: 500;
+            letter-spacing: 0.3px;
+        }
+
+        /* Card Dashboard Analytics – descrição longa */
+        .card-dashboard p {
+            padding: 0 1.5rem 0.8rem;
+            font-size: 0.95rem;
+            text-align: left;
+            color: #4a5568;
+            font-weight: 400;
+            line-height: 1.6;
+        }
+
+        .card-dashboard .btn-acessar {
+            margin: 0 1.5rem 1.2rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+        }
+
+        .btn-acessar {
+            background: #90D5FF;
+            color: white;
+            padding: 0.6rem;
+            border-radius: 8px;
+            text-align: center;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .btn-acessar i {
+            margin-right: 8px;
+        }
+
+        .card:hover .btn-acessar {
+            background: #90D5FF;
+        }
+
+        #contato {
+            background: white;
+            border-radius: 20px;
+            padding: 2rem;
+            margin-top: 2rem;
+        }
+
+        #contato h3 {
+            color: #2d3748;
+            margin-bottom: 1.5rem;
+        }
+
+        form fieldset {
+            border: none;
+            padding: 0;
+        }
+
+        label {
+            font-weight: 600;
+            color: #2d3748;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 0.8rem;
+            border: 2px solid #e2e8f0;
+            border-radius: 10px;
+            font-family: 'Inter', sans-serif;
+            transition: all 0.3s ease;
+        }
+
+        input:focus, textarea:focus {
+            outline: none;
+            border-color: #90D5FF;
+            box-shadow: 0 0 0 3px rgba(144, 213, 255, 0.1);
+        }
+
+        button {
+            background: white;
+            color: #25d366;
+            border: 2px solid #25d366;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 100%;
+        }
+
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(37, 211, 102, 0.2);
+            background: #25d366;
+            color: white;
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem;
+            background: #1a1a2e;
+            color: white;
+            margin-top: 3rem;
+        }
+
+        footer a {
+            color: #90D5FF;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        footer a:hover {
+            color: #90D5FF;
+            transform: translateY(-2px);
+        }
+
+        @media (max-width: 768px) {
+            .perfil-container {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            header ul {
+                gap: 1rem;
+            }
+            
+            main {
+                padding: 1rem;
+            }
+            
+            #sobremim {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header id="header">
+        <ul>
+            <li><a href="#" id="sobreMimLink"><i class="fas fa-user"></i> Sobre mim</a></li>
+            <li><a href="#projetos"><i class="fas fa-code"></i> Meus projetos</a></li>
+            <li><a href="#contato"><i class="fas fa-envelope"></i> Entre em contato</a></li>
+        </ul>
+    </header>
+    
+    <main>
+
+        <a href="https://drive.google.com/file/d/1fBFboT1_ybjARrhTdyruS8CYeaOIrmmb/view?usp=sharing" target="_blank" class="sobremim-link">
+            <section id="sobremim">
+                <div class="perfil-container">
+                    <img src="https://mail.google.com/mail/u/0?ui=2&ik=f50d440d74&attid=0.1&permmsgid=msg-f:1866198984493762305&th=19e61216bef20701&view=att&zw&disp=safe" alt="Lucas Almeida - Perfil">
+                    <div class="perfil-info">
+                        <h1>Lucas Almeida</h1>
+                        <h2>Desenvolvedor Full Stack | Designer Gráfico | Analista de Dados</h2>
+                        <p>Apaixonado por tecnologia, desenvolvendo minhas primeiras aplicações e buscando uma oportunidade para iniciar minha carreira na programação</p>
+                        <div class="curriculo-indicador">
+                            <i class="fas fa-file-alt"></i> Clique para acessar meu currículo completo →
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </a>
+
+        <section id="projetos">
+            <h3>MEUS PROJETOS</h3>
+            <div id="cards">
+                <!-- E-commerce Platform -->
+                <a href="https://futuretech-pi.vercel.app/" class="card-link" target="_blank" id="ecommerceLink">
+                    <div class="card">
+                        <img src="https://www.wavecommerce.com.br/blog/wp-content/uploads/2022/08/plataforma-ecommerce.webp" alt="E-commerce Platform">
+                        <h4>🛒 E-commerce Platform</h4>
+                        <p>Site de E-commerce feito totalmente na linguagem HTML</p>
+                    </div>
+                </a>
+                
+                <!-- Dashboard Analytics -->
+                <a href="https://app.powerbi.com/groups/me/reports/dbf40170-5b8a-4071-8013-ddf6963dbdec?ctid=c978a5cf-afa2-42a9-a3cf-a0d9518374a7&pbi_source=linkShare" target="_blank" style="text-decoration: none;">
+                    <div class="card card-dashboard">
+                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=400&h=200&fit=crop" alt="Dashboard Analytics">
+                        <h4>📊 Dashboard Analytics</h4>
+                        <p>Dashboard interátivo de um hotel fictício,utilizando sua base de dados e promovendo algumas automações, feito exclusivamente em power BI</p>
+                        <div class="btn-acessar">
+                            <i class="fas fa-external-link-alt"></i> Clique para acessar
+                        </div>
+                    </div>
+                </a>
+                
+                <!-- App Mobile - Dashboard Preventivo -->
+                <a href="#" class="card-link" target="_blank" id="appMobileLink">
+                    <div class="card">
+                        <img src="https://images.unsplash.com/photo-1581291518633-83b4ebd1d83e?w=400&h=200&fit=crop" alt="App Mobile">
+                        <h4>📱 Dashboard Preventivo</h4>
+                        <p>*FUTUROS PROJETOS*</p>
+                    </div>
+                </a>
+            </div>
+        </section>
+
+        <section id="contato">
+            <h3>ENTRE EM CONTATO</h3>
+            <form id="formWhatsApp">
+                <fieldset>
+                    <label for="nome"><i class="fas fa-user"></i> Nome completo:</label>
+                    <input type="text" name="nome" id="nome" placeholder="Seu nome completo" required>
+                    <br><br>
+
+                    <label for="email"><i class="fas fa-envelope"></i> E-mail:</label>
+                    <input type="email" name="email" id="email" placeholder="seu@email.com" required>
+                    <br><br>
+                    
+                    <label for="celular"><i class="fas fa-phone"></i> Telefone:</label>
+                    <input type="tel" name="celular" id="celular" placeholder="(21) 99999-9999" required>
+                    <br><br>
+
+                    <label for="mensagem"><i class="fas fa-comment"></i> Sua mensagem:</label>
+                    <textarea name="mensagem" id="mensagem" rows="4" placeholder="Descreva seu projeto, dúvida ou proposta de trabalho..." required></textarea>
+                    <br><br>
+
+                    <button type="submit">
+                        <i class="fab fa-whatsapp"></i> Enviar via WhatsApp
+                    </button>
+                </fieldset>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2026 Lucas Almeida - Todos os direitos reservados</p>
+        <br>
+        <a href="#header"><i class="fas fa-arrow-up"></i> Volte para o topo</a>
+    </footer>
+
+    <script>
+        document.getElementById('formWhatsApp').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const nome = document.getElementById('nome').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const celular = document.getElementById('celular').value.trim();
+            const mensagem = document.getElementById('mensagem').value.trim();
+
+            const numeroWhatsApp = '5521972012861';
+
+            const texto = `Olá, Lucas! Me chamo *${nome}*.%0A%0A` +
+                          `📧 E-mail: ${email}%0A` +
+                          `📱 Telefone: ${celular}%0A%0A` +
+                          `💬 Mensagem:%0A${encodeURIComponent(mensagem)}`;
+
+            const url = `https://wa.me/${numeroWhatsApp}?text=${texto}`;
+            window.open(url, '_blank');
+        });
+    </script>
+</body>
+</html>
